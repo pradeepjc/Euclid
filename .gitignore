@@ -1,0 +1,6 @@
+
+*.xml
+*.iml
+*.html
+.DS_Store
+*.class
