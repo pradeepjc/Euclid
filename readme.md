@@ -7,5 +7,6 @@ GCD aka Greatest Common Divisor is an integer that has highest value among all t
 3. If both the integers are inequal, mod the greater integer by the smaller integer.
 4. If result is 0, the smaller integer is the GCD.
 5. If result is not 0, replace greater integer with the smaller integer and smaller integer with the mod result.
-6. Repeat until mod returns 0.
+6. Repeat until mod returns 0. 
+
 **The value of the smaller integer (only for integers that are inequal) when mod returns 0 is the GCD.**
