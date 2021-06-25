@@ -1,39 +1,34 @@
 package main.java;
 
-import java.util.Random;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        int x = generateRandomInt();
-        int y = generateRandomInt();
 
-        System.out.println("First integer is " + x);
-        System.out.println("Second integer is " + y);
-        if (x == 0 || y == 0) {
-            System.out.println("inputs can not contain 0!");
+        ArrayList<Integer> intArrayList = new ArrayList<Integer>();
+        intArrayList.add(0,generateRandomInt());
+        intArrayList.add(1,generateRandomInt());
+
+        System.out.println("The first integer is " + intArrayList.get(0));
+        System.out.println("The second integer is " + intArrayList.get(1));
+
+        if(intArrayList.contains(0)){
+            System.out.println(" 0 is not a valid input for the operation. ");
             return;
-        }
-        if (x == y) {
-            System.out.println("The GCD is " + x);
-            return;
-        }
-        int m = x > y ? x : y;
-        int n = x > y ? y : x;
-        int r = getModValue(m, n);
-        if (r == 0) {
-            System.out.println("The GCD is " + n);
-            return;
-        }
-        int gcd = 0;
-        while (r != 0) {
-            gcd = r;
-            m = n;
-            n = r;
-            r = getModValue(m, n);
         }
 
-        System.out.println("The GCD is " + gcd);
+        Collections.sort(intArrayList,Collections.reverseOrder());
+
+        while(intArrayList.get(1)!=0){
+            int result = getModValue(intArrayList.get(0),intArrayList.get(1));
+            intArrayList.set(0,intArrayList.get(1));
+            intArrayList.set(1,result);
+            if(intArrayList.get(1) == 0){
+                System.out.println("The GCD is " + intArrayList.get(0));
+                return;
+            }
+        }
     }
 
     private static int generateRandomInt() {
